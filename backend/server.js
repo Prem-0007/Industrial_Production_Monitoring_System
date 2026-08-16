@@ -24,7 +24,7 @@ const allowedOrigins = process.env.CLIENT_URL
   : '*';
 app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
-
+app.get('/', (req, res) => res.json({ status: 'prem' }));
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 
 app.use('/api/auth', authRoutes);
